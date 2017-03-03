@@ -1,0 +1,22 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.books {
+    background-image: url('/assets/book_end.png');
+    padding-left: 20px;
+    image-resolution: 850px 69px;
+}
+
+.inbooks {
+  width: 776px;
+    padding-left: 35px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 35px;
+    font-size: 1rem;
+    color: #fff;
+    box-shadow: 5px 1px 6px black;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px 1px black, -0.5px -0.5px #333;
+
+}

@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Library</h1>
+<br>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title&nbsp;&nbsp;&nbsp;&nbsp;
+      Author&nbsp;&nbsp;&nbsp;&nbsp;
+      Available&nbsp;&nbsp;&nbsp;&nbsp;
+      Return date&nbsp;&nbsp;&nbsp;&nbsp;
+      Book&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <h1>Available books</h1>
+    <% @posts.select { |obj| obj[:available] == true  }.each do |post| %>
+      <tr class="books">
+        <td class="inbooks"><%= post.title %>,&nbsp;
+        <%= post.author %>,&nbsp;
+        <%= post.available %>,&nbsp;
+          <%= post.return_date %>,
+        Book_id <%= post.book_id %> <br>
+        <%= link_to 'Show', post %>
+        <%= link_to 'checkout', edit_post_path(post) %>&nbsp;
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>&nbsp;&nbsp;&nbsp;&nbsp;<br></td>
+      </tr>
+    <% end %>
+
+
+
+  </tbody>
+  </table>
+  <table>
+  <tbody>
+    <br>
+  <h1>Checkout books</h1>
+  <br>
+  <% @posts.select { |obj| obj[:available] == false  }.each do |post| %>
+    <tr class="books">
+      <td class="inbooks"><%= post.title %>,&nbsp;
+      <%= post.author %>,&nbsp;
+      <%= post.available %>,&nbsp;
+        <%= post.return_date %>,
+      Book_id <%= post.book_id %> <br>
+      <%= link_to 'Show', post %>
+      <%= link_to 'checkin', edit_post_path(post) %>&nbsp;
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
